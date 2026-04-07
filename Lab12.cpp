@@ -9,8 +9,8 @@ using namespace std;
 
 //Function prototypes and named constants
 void fillArray(int[][6], int);
-/*void printArray(int[][COL_SIZE], int);
-void printTotals(int[][COL_SIZE], int);*/
+void printArray(int[][6], int);
+//void printTotals(int[][6], int);
 const int ROW_SIZE = 5;
 
 //Main function creates the array and calls the functions
@@ -24,8 +24,8 @@ int main()
 
 	//Call Functions
 	fillArray(numbers, 5);
-	/*printArray(numbers, COL_SIZE);
-	printTotals(numbers, COL_SIZE);*/
+	printArray(numbers, 5);
+	//printTotals(numbers, 5);
 
 	return 0;
 }
@@ -33,6 +33,7 @@ int main()
 //This function fills the array with numbers from the User
 void fillArray(int numbers[][6], int ROW_SIZE)
 {
+	//Loopto fill the arrayiwth use imput 1 element at a time
 	for (int i = 0; i < ROW_SIZE; i++)
 	{
 		for (int j = 0; j < 6; j++)
@@ -40,5 +41,20 @@ void fillArray(int numbers[][6], int ROW_SIZE)
 			cout << "Please enter a number for Row " << i + 1 << " Column " << j + 1 << ": ";
 			cin >> numbers[i][j];
 		}
+	}
+}
+
+//This function prints the array in a table format
+void printArray(int numbers[][6], int ROW_SIZE)
+{
+	//loop to print each row of the array
+	for (int row = 0; row < ROW_SIZE; row++)
+	{
+		//Loop to print each element in the row with a width of 5
+		for (int col = 0; col < 6; col++)
+		{
+			cout << setw(5) << numbers[row][col];
+		}
+		cout << endl;
 	}
 }
